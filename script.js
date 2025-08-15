@@ -125,12 +125,11 @@ function calculateResults() {
     let score = 0;
     let negativeAnswers = [];
     
-    // حساب النقاط
+    // حساب النقاط بناءً على عدد الإجابات "نعم"
     for (let i = 0; i < questions.length; i++) {
         if (answers[i] === 'yes') {
-            score += 2; // درجتان لكل إجابة نعم
+            score += 1; // كل إجابة نعم تساوي نقطة واحدة
         } else if (answers[i] === 'no') {
-            score -= 2; // تنقص درجتان لكل إجابة لا
             negativeAnswers.push({
                 index: i + 1,
                 question: questions[i]
@@ -138,12 +137,16 @@ function calculateResults() {
         }
     }
     
-    // التأكد من أن النتيجة لا تقل عن صفر
-    score = Math.max(0, score);
+    // تحويل الدرجة إلى نسبة مئوية من 100
+    score = (score / questions.length) * 100;
+    
+    // تقريب النتيجة إلى أقرب عدد صحيح
+    score = Math.round(score);
     
     // عرض النتائج
     displayResults(score, negativeAnswers);
 }
+
 
 // عرض النتائج
 function displayResults(score, negativeAnswers) {
