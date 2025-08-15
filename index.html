@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="icons.ico">
+    <meta name="description" content="استمارة محاسبة النفس للسيد صادق المروج قال رسول الله ص حاسبو انفسكم قبل ان تحاسبو صدق رسول الله">
+    <meta name="keywords" content="محاسبة النفس,السيد صادق المروج,استمارة محاسبة النفس السيد صاردق المروج,حاسبو انفسكم">
+    <title>اختبار المحاسبة الذاتية</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>اختبار المحاسبة الذاتية</h1>
+            <div class="hadith">
+                <p>قال رسول الله (ص): "حاسِبوا أنفُسَكم قبل أن تُحاسَبوا" صدق رسول الله (ص)</p>
+            </div>
+            <div class="instructions">
+                <p>حاسب نفسك في هذا الاختبار من خلال <strong>50 سؤال</strong> لكل سؤال درجتان إذا أجبت (نعم) فحصل على درجتين، وإذا أجبت (لا) فتنقص درجتان.</p>
+            </div>
+        </header>
+
+        <div class="quiz-container" id="quizContainer">
+            <div class="progress-bar">
+                <div class="progress" id="progress"></div>
+            </div>
+            <div class="question-counter">
+                <span id="currentQuestion">1</span> من 50
+            </div>
+            
+            <div class="questions" id="questions">
+                <!-- الأسئلة ستُضاف هنا بواسطة JavaScript -->
+            </div>
+            
+            <button class="submit-btn" id="submitBtn" onclick="calculateResults()" style="display: none;">تم</button>
+        </div>
+
+        <div class="results-container" id="resultsContainer" style="display: none;">
+            <h2>نتائج الاختبار</h2>
+            <div class="score-display">
+                <div class="score-circle">
+                    <span id="finalScore">0</span>
+                    <small>من 100</small>
+                </div>
+            </div>
+            <div class="score-interpretation" id="scoreInterpretation"></div>
+            <div class="negative-answers" id="negativeAnswers" style="display: none;">
+                <h3>الأسئلة التي تم الإجابة عنها بـ "لا":</h3>
+                <ul id="negativeList"></ul>
+            </div>
+            <button class="restart-btn" onclick="restartQuiz()">إعادة الاختبار</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
